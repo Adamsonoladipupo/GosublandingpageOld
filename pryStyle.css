@@ -1,3 +1,14 @@
+
+
+/* ------------- Variables ----------------------- */
+
+:root {
+    --pry-color: #FB470D;
+    --main-bg-color: #F1F1F2;
+    --button-hover: #eb3b00;
+
+}
+
 /* ----------------------------------------------- */
 /* ------------- Universal Styling ----------------*/
 /* ----------------------------------------------- */
@@ -12,9 +23,11 @@
 }
 
 .header{
-    background-color: #F1F1F2;
+    background-color: var(--main-bg-color);
     height: 60px;
     top: 0;
+    position: sticky;
+    z-index: 5;
 }
 
 button{
@@ -22,13 +35,13 @@ button{
     margin-top: 20px;
     border-radius: 5px;
     color: #fff;
-    background-color: #f26522;
-    border: 1px solid #f26522 ;
+    background-color: var(--pry-color);
+    border: 1px solid var(--pry-color) ;
     transition: 0.76s ease-in;
 }
 button:hover{
     color: #fff;
-    background-color: #f04c00;
+    background-color: var(--button-hover);
 }
 
 /* Page scroll animation for styling each section */
@@ -43,6 +56,9 @@ button:hover{
     opacity: 1;
 }
 
+body{
+    background-image: url(bg15c.svg);
+}
 /* -----------Styling Header --------------- */
 
 .logo{
@@ -80,7 +96,7 @@ a {
     top: 50px;
     flex-direction: column;
     align-items:start ;
-    background-color: #F1F1F2;
+    background-color: var(--main-bg-color);
     width: 100%;
     text-align: left;
     transition: 0.5s;
@@ -100,10 +116,10 @@ a {
     color: #000;
 }
 .nav-link:hover{
-    color: #f26522;
+    color: var(--button-hover);
 }
 .button{
-    background-color: #f26522;
+    background-color: var(--pry-color);
     border-radius: 3px;
     text-align: center;
     width: 100%;
@@ -115,7 +131,7 @@ a {
     
 }
 .button:hover{
-    background-color: #f5570d;
+    background-color: var(--button-hover);
     color: white;
 }
 .hamburger.active .bar:nth-child(2) {
@@ -130,9 +146,7 @@ a {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-body{
-    background-image: url(bg15c.svg);
-}
+
 
 
 /* -----------Styling Introduction section-------- */
@@ -190,10 +204,10 @@ margin-top: 20px;
 .curveEdge{
     width: 100px;
     height: 100px;
-    background-color: #661b00;
+    background-color: var(--pry-color);
 }
 .AQ-container{
-    background-color: #661b00;
+    background-color: var(--pry-color);
     color: #ffffff;
     padding: 40px 20px 40px 20px;
     border-top-right-radius: 100px;
@@ -207,7 +221,7 @@ margin-top: 20px;
     content: '';
     z-index: 1;
     left: 0;
-    background-color: #F1F1F2;
+    background-color: var(--main-bg-color);
     border-bottom-left-radius: 100px;
 }
 .AC-counter{
@@ -232,7 +246,7 @@ margin-top: 20px;
     
 }
 .AC-counterCards:hover{
-    border-bottom: 3px solid #f26522;
+    border-bottom: 3px solid var(--button-hover);
     border-radius: 10px 10px 0px 0px ;
 }
 .AC-counterCards span{
@@ -253,7 +267,7 @@ margin-top: 20px;
     display: grid;
     justify-content:center;
     align-items:self-start;
-    color: #661b00;
+    color: var(--pry-color);
     max-width: 340px;
 }
 .AC-container{
@@ -273,7 +287,7 @@ margin-top: 20px;
     background-color: #ffffff;
     margin: 20px 10px;
     padding: 10px;
-    color: #661b00;
+    color: var(--pry-color);
     display: grid;
     justify-content: center;
     align-items: center;
@@ -388,11 +402,11 @@ margin-top: 20px;
 
     .P-container:before{
         left: 0;
-        background-color: #F1F1F2;
+        background-color: var(--main-bg-color);
     }
     .P-container:after{
         right: 0;
-        background-color: #F1F1F2;
+        background-color: var(--main-bg-color);
     }
     .P-container:hover .P-slide{
         animation-play-state: paused;
@@ -424,7 +438,7 @@ margin-top: 20px;
     
 }
 .footer h4{
-    color: #f26522;
+    color: var(--pry-color);
     margin-top: 20px;
     margin-bottom: 5px;
     
@@ -461,7 +475,7 @@ margin-top: 20px;
 .F-newsLetter input{
     width: 100%;
     padding: 12px;
-    border: 1px solid #661b00;
+    border: 1px solid var(--pry-color);
     border-radius: 5px;
     outline: none;
     color: black;
