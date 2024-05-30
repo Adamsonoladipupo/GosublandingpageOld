@@ -28,6 +28,8 @@
     top: 0;
     position: sticky;
     z-index: 5;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
 }
 
 button{
@@ -78,6 +80,7 @@ body{
     cursor: pointer;
 }
 .navbar {
+    background-color: var(--main-bg-color);
     display: flex;
     height: 60px;
     justify-content: space-between;
@@ -94,13 +97,12 @@ a {
     position: fixed;
     left: 100%;
     top: 50px;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items:start ;
     background-color: var(--main-bg-color);
     width: 100%;
     text-align: left;
     transition: 0.5s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     padding: 20px;
 }
 .nav-menu.active {
@@ -161,7 +163,9 @@ a {
     
 }
 .I-container .hero-image img{
-height: 400px;
+width: 100%;
+max-width: 400px;
+height: auto;
 margin: 0px 0px -5px 0px;
 padding: 20px;
 margin-top: 20px;
@@ -297,8 +301,12 @@ margin-top: 20px;
 }
 
 /* -----------Styling Testimony section ------- */
-
-.T-wrapper i {
+/* .testimony{
+    text-align: center;
+    margin: 50px;
+} */
+.angle-right{
+    top: 50%;
     height: 50px;
     width: 50px;
     cursor: pointer;
@@ -306,21 +314,44 @@ margin-top: 20px;
     position: absolute;
     text-align: center;
     line-height: 50px;
-    padding: 200px;
-    border-radius: 5px;
+    background: #fff;
+    border-radius: 50%;
     box-shadow: 0 3px 6px rgba(0,0,0,0.23);
     transform: translateY(-50%);
     transition: transform 0.1s linear;
-  }
-  .T-wrapper i:active{
+    cursor: pointer;
+}
+.angle-right{
+    right: 22px;
+}
+.angle-right:active{
     transform: translateY(-50%) scale(0.85);
-  }
-  .T-wrapper i:first-child{
-    left: -22px;
-  }
-  .T-wrapper i:last-child{
-    right: -22px;
-  }
+}
+.angle-left{
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+    cursor: pointer;
+}
+.angle-left{
+    left: 2px;
+}
+.angle-left:active{
+    transform: translateY(-50%) scale(0.85);
+}
+
+
+
   .T-wrapper .carousel{
     display: grid;
     grid-auto-flow: column;
@@ -362,15 +393,70 @@ margin-top: 20px;
     flex-direction: column;
     border-radius: 5px;
     padding: 20px;
-    text-align: center;
+    text-align: center; 
     }
     a{
         text-decoration: none;
     }
     .T-wrapper{
-        padding: 20px;
+        margin-left: 20px;
+
     }
 
+    /* indication dots */
+    .indicators{
+        position:absolute ;
+        /* bottom: 10px; */
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        cursor: pointer;
+    }
+    .indicators .dot{
+        width: 15px;
+        height: 15px;
+        margin: 0px 3px;
+        border: 3px solid #aaa;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.5s ease;
+    }
+    .indicators .active{
+        background-color: var(--pry-color);
+    }
+    @keyframes next1{
+        from{
+            left: 0%;
+        }
+        to{
+            left: -100%;
+        }
+    }
+    @keyframes next2{
+        from{
+            left: 100%;
+        }
+        to{
+            left: 0%;
+        }
+    }
+
+    @keyframes prev1{
+        from{
+            left: 0%;
+        }
+        to{
+            left: 100%;
+        }
+    }
+    @keyframes prev2{
+        from{
+            left: -100%;
+        }
+        to{
+            left: 0%;
+        }
+    }
 
 /* ----------Styling Trusted Partner section ---- */
 
@@ -482,17 +568,39 @@ margin-top: 20px;
     font-size: 1em;
 }
 
-/* ----------------------------------------------- */
-/* ---------- Mobile Phone Styling ----------------*/
-/* ----------------------------------------------- */
-
-
-
 
 /* ----------------------------------------------- */
 /* ---------------- Tablet Styling ----------------*/
 /* ----------------------------------------------- */
 
+@media (min-width: 720px) {
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: transparent;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+        .nav-item {
+            margin: 0 10px;
+        }
+
+        .nav-link:hover{
+            color: var(--button-hover);
+        }
+
+        .button{
+                display: none;
+        }
+
+
+
+}
 
 /* ----------------------------------------------- */
 /* ---------------- Laptop Styling ----------------*/
