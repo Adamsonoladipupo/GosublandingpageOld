@@ -181,6 +181,7 @@ margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    grid-template-columns: minmax (100px 2fr);
     gap: 2rem;
     margin: 50px 0 0px 0 ;
 }
@@ -462,7 +463,6 @@ margin-top: 20px;
 }
 .footer p{
     color: #ffffff;
-    margin-left: 10px;
     margin-bottom: 5px;
     
 }
@@ -526,12 +526,25 @@ margin-top: 20px;
         }
 /* Our services */
 .O-cards{
-
-    flex-direction: column;
+    display: flex;
     justify-content: center;
     /* flex-wrap: wrap; */
-    gap: 2rem;
+    grid-template-columns: 40%;
+    grid-template-rows: 400px ;
+    gap: 20px;
     margin: 50px 0 0px 0 ;
+}
+.o-card{
+    width: 360px;
+    height: auto;
+    padding: 20px;
+    display: block;
+    justify-content: center;
+    align-items:center ;
+    text-align: center;
+    background-color: #fff;
+    transition: 1s ease;
+    border-radius: 5px;
 }
 /* Testimony section */
         .wrapper .carousel {
@@ -547,8 +560,8 @@ margin-top: 20px;
             z-index: 1;
         }
         .P-slide img{
-            height: 50px;
-            margin: 0 40px;
+            height: 35px;
+            margin: 0 30px;
         }
 
         .FooterLinks{
