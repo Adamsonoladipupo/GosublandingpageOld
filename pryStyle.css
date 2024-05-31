@@ -301,11 +301,13 @@ margin-top: 20px;
 }
 
 /* -----------Styling Testimony section ------- */
-/* .testimony{
-    text-align: center;
-    margin: 50px;
-} */
-.angle-right{
+.wrapper {
+    width: 100%;
+    position: relative;
+    padding: 30px;
+
+  }
+  .wrapper i {
     top: 50%;
     height: 50px;
     width: 50px;
@@ -319,50 +321,27 @@ margin-top: 20px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.23);
     transform: translateY(-50%);
     transition: transform 0.1s linear;
-    cursor: pointer;
-}
-.angle-right{
-    right: 22px;
-}
-.angle-right:active{
+  }
+  .wrapper i:active{
     transform: translateY(-50%) scale(0.85);
-}
-.angle-left{
-    top: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 1.25rem;
-    position: absolute;
-    text-align: center;
-    line-height: 50px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-    transform: translateY(-50%);
-    transition: transform 0.1s linear;
-    cursor: pointer;
-}
-.angle-left{
+  }
+  .wrapper i:first-child{
     left: 2px;
-}
-.angle-left:active{
-    transform: translateY(-50%) scale(0.85);
-}
-
-
-
-  .T-wrapper .carousel{
+  }
+  .wrapper i:last-child{
+    right: 2px;
+  }
+  .wrapper .carousel{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc((100% ) - 12px);
+    grid-auto-columns: 100%;
+    
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
-    border-radius: 5px;
+    gap: 16px;
+    border-radius: 8px;
     scroll-behavior: smooth;
     scrollbar-width: none;
-  
   }
   .carousel::-webkit-scrollbar {
     display: none;
@@ -374,90 +353,37 @@ margin-top: 20px;
     scroll-snap-type: none;
     scroll-behavior: auto;
   }
-  .carousel.dragging .T-card {
+  .carousel.dragging .card {
     cursor: grab;
     user-select: none;
   }
-  .carousel :where(.T-card, .img) {
+  .carousel :where(.card, .img) {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 300px; */
   }
-  .carousel .T-card {
+  .carousel .card {
     scroll-snap-align: start;
-    height: 360px;
+    height: 342px;
     list-style: none;
-    background: #d8d8d8 ;
+    background: #fff;
     cursor: pointer;
+    /* padding-bottom: 15px; */
+    padding: 0px 20px 15px 20px ;
     flex-direction: column;
-    border-radius: 5px;
-    padding: 20px;
+    border-radius: 8px;
     text-align: center; 
-    }
-    a{
-        text-decoration: none;
-    }
-    .T-wrapper{
-        margin-left: 20px;
-
-    }
-
-    /* indication dots */
-    .indicators{
-        position:absolute ;
-        /* bottom: 10px; */
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 5px;
-        cursor: pointer;
-    }
-    .indicators .dot{
-        width: 15px;
-        height: 15px;
-        margin: 0px 3px;
-        border: 3px solid #aaa;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.5s ease;
-    }
-    .indicators .active{
-        background-color: var(--pry-color);
-    }
-    @keyframes next1{
-        from{
-            left: 0%;
-        }
-        to{
-            left: -100%;
-        }
-    }
-    @keyframes next2{
-        from{
-            left: 100%;
-        }
-        to{
-            left: 0%;
-        }
-    }
-
-    @keyframes prev1{
-        from{
-            left: 0%;
-        }
-        to{
-            left: 100%;
-        }
-    }
-    @keyframes prev2{
-        from{
-            left: -100%;
-        }
-        to{
-            left: 0%;
-        }
-    }
-
+    margin-top: 40px;
+  }
+  .carousel .card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
+  }
+  .carousel .card span {
+    color: #6A6D78;
+    font-size: 1.31rem;
+  }
 /* ----------Styling Trusted Partner section ---- */
 
 
@@ -574,6 +500,7 @@ margin-top: 20px;
 /* ----------------------------------------------- */
 
 @media (min-width: 720px) {
+    /* Navigation menu */
     .nav-menu {
         display: flex;
         position: static;
@@ -597,11 +524,51 @@ margin-top: 20px;
         .button{
                 display: none;
         }
+/* Our services */
+.O-cards{
 
-
-
+    flex-direction: column;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    gap: 2rem;
+    margin: 50px 0 0px 0 ;
 }
+/* Testimony section */
+        .wrapper .carousel {
+            grid-auto-columns: calc((100% / 2) - 9px);
+        }
+        .P-container:before,
+        .P-container:after{
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            content: '';
+            z-index: 1;
+        }
+        .P-slide img{
+            height: 50px;
+            margin: 0 40px;
+        }
+
+        .FooterLinks{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+}
+
 
 /* ----------------------------------------------- */
 /* ---------------- Laptop Styling ----------------*/
 /* ----------------------------------------------- */
+@media ( min-width: 1000px) {
+        .wrapper .carousel {
+            grid-auto-columns: calc((100% / 3) - 12px);
+        }
+        .wrapper {
+            width: 100%;
+            position: relative;
+            padding: 50px;
+    }
+}
