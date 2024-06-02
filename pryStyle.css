@@ -61,6 +61,7 @@ button:hover{
 body{
     background-image: url(bg15c.svg);
 }
+
 /* -----------Styling Header --------------- */
 
 .logo{
@@ -229,13 +230,17 @@ margin-top: 20px;
     background-color: var(--main-bg-color);
     border-bottom-left-radius: 100px;
 }
-.AC-counter{
+
+.AC-texts{
+    padding: 20px;
+}
+.AC-cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
-.AC-counterCards{
+.AC-counterCard{
     display: block;
     text-align: center;
     justify-content: center;
@@ -250,11 +255,11 @@ margin-top: 20px;
     transition: 0.5s;
     
 }
-.AC-counterCards:hover{
+.AC-counterCard:hover{
     border-bottom: 3px solid var(--button-hover);
     border-radius: 10px 10px 0px 0px ;
 }
-.AC-counterCards span{
+.AC-counterCard span{
     margin: 20px;
 }
 .Q-container{
@@ -305,7 +310,7 @@ margin-top: 20px;
 .wrapper {
     width: 100%;
     position: relative;
-    padding: 30px;
+    padding: 10px;
 
   }
   .wrapper i {
@@ -317,7 +322,7 @@ margin-top: 20px;
     position: absolute;
     text-align: center;
     line-height: 50px;
-    background: #fff;
+    background: transparent;
     border-radius: 50%;
     box-shadow: 0 3px 6px rgba(0,0,0,0.23);
     transform: translateY(-50%);
@@ -336,7 +341,6 @@ margin-top: 20px;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
-    
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
@@ -546,6 +550,27 @@ margin-top: 20px;
     transition: 1s ease;
     border-radius: 5px;
 }
+.AC-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.AC-counterCard{
+    width: 35%;
+    
+}
+
+.Q-container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.Q-card{
+    width: 30%;
+}
 /* Testimony section */
         .wrapper .carousel {
             grid-auto-columns: calc((100% / 2) - 9px);
@@ -571,6 +596,19 @@ margin-top: 20px;
         }
 }
 
+@media (min-width: 900px){
+    .AC-counter{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .AC-texts{
+        max-width: 40%;
+        font-size: 1.3rem;
+        text-align: justify;
+    }
+
+}
 
 /* ----------------------------------------------- */
 /* ---------------- Laptop Styling ----------------*/
@@ -580,8 +618,12 @@ margin-top: 20px;
             grid-auto-columns: calc((100% / 3) - 12px);
         }
         .wrapper {
-            width: 100%;
-            position: relative;
             padding: 50px;
-    }
+        }
+        .wrapper i:first-child{
+            left: 20px;
+          }
+          .wrapper i:last-child{
+            right: 20px;
+          }
 }
