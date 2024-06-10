@@ -7,7 +7,7 @@
     <!--Connection to google icon library-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="pryStyle.css">
+    <link rel="stylesheet" href="backUp.css">
     <title>Document</title>
 </head>
 <body>
@@ -488,45 +488,47 @@ wrapper.addEventListener("mouseleave", autoPlay);
 
 <!-- script for the new counter for achievement that activate when scrolled over -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const counters = [
-            { element: document.getElementById("counter1"), target: 80000 },
-            { element: document.getElementById("counter2"), target: 50000 },
-            { element: document.getElementById("counter3"), target: 22000 },
-            { element: document.getElementById("counter4"), target: 50000 }
-        ];
+    document.addEventListener('DOMContentLoaded', (event) => {
+            const counters = [
+                { element: document.getElementById('counter1'), target: 80000, duration: 2000 },
+                { element: document.getElementById('counter2'), target: 50000, duration: 3000 },
+                { element: document.getElementById('counter3'), target: 22000, duration: 2500 },
+                { element: document.getElementById('counter4'), target: 50000, duration: 3000 }
+            ];
 
-        function startCounter(counter) {
-            let count = 0;
-            const duration = 500; // total time in milliseconds
-            const increment = counter.target / (duration / 1); // calculate increment step
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-            function updateCounter() {
-                if (count < counter.target) {
-                    count += increment;
-                    counter.element.textContent = Math.ceil(count);
-                    setTimeout(updateCounter, 10); // update every 10 milliseconds
-                } else {
-                    counter.element.textContent = counter.target; // ensure the final value is exact
-                }
-            }
-
-            updateCounter();
-        }
-
-        counters.forEach(counter => {
-            const observer = new IntersectionObserver(entries => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        counter.element.textContent = '0'; // Reset the counter
-                        startCounter(counter); // Start the counter
+                        const counter = counters.find(c => c.element === entry.target);
+                        if (counter && !counter.started) {
+                            counter.started = true;
+                            let startTimestamp = null;
+
+                            const step = (timestamp) => {
+                                if (!startTimestamp) startTimestamp = timestamp;
+                                const progress = Math.min((timestamp - startTimestamp) / counter.duration, 1);
+                                counter.element.textContent = Math.floor(progress * counter.target);
+                                if (progress < 1) {
+                                    window.requestAnimationFrame(step);
+                                }
+                            };
+
+                            window.requestAnimationFrame(step);
+                        }
                     }
                 });
-            });
+            }, observerOptions);
 
-            observer.observe(counter.element);
+            counters.forEach(counter => {
+                observer.observe(counter.element);
+            });
         });
-    });
 </script>
 
 
