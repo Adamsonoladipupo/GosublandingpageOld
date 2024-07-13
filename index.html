@@ -32,19 +32,56 @@
         </nav>
     </header>
 
+
+
+    <div class="slider">
+        <div class="slides">
+            <div class="mainContainer slide">
+                <div class="heroText content">
+                    <h1>Welcome to your number one Airtime to Cash Conversion platform</h1>
+                    <a href="#" class="heroBtn">Get Start</a>
+                </div>
+                <div class="heroImage">
+                    <img src="image/Hero-img1.png" alt="">
+                </div>
+            </div>
+            <div class="mainContainer slide">
+                <div class="heroText content">
+                    <h1>Your No:1 Platform for affordable Data plan.</h1>
+                    <a href="#" class="heroBtn">Get Start</a>
+                </div>
+                <div class="heroImage">
+                    <img src="image/Hero-img2.png" alt="">
+                </div>
+            </div>
+            <div class="mainContainer slide">
+                <div class="heroText content">
+                    <h1>Earn up to ₦45,000 monthly by selling Airtime and Data plans.</h1>
+                    <a href="#" class="heroBtn">Get Start</a>
+                </div>
+                <div class="heroImage">
+                    <img src="image/Hero-img3.png" alt="">
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button" id="prevBtn">&#10094;</button>
+            <button class="nav-button" id="nextBtn">&#10095;</button>
+        </div>
+    </div>
+
+
+
+
     <!-- This is the Introductory Section -->
     <section class="releal">
-        <div class="I-container container">
-            
-            <div class="hero-text">
-                <h1>A better way to convert your Airtime to cash</h1>
-                <p>Enjoy more benefit when you use Gosub</p>
-                <a href="signup.html"><button>Get Started</button></a>
-            </div>
-            <div class="hero-image">
-                <img src="image/Hero-img2.png" alt="a smilling lady" >
-            </div>
-        </div>
         <!-- This is the About Section -->
 
         <div class="A-container container">
@@ -340,7 +377,7 @@
                     </div>
                     
                     <div style="display: flex; align-items: center;">
-                        <svg width="15" viewBox="0 0 512 512"><path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        <svg width="15" viewBox="0 0 512 512"><path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg> 
                         <p style="padding-left: 10px;">contact@gosub.ng</p>
                     </div>
                     <div style="display: flex; align-items: center;">
@@ -376,33 +413,74 @@
     </div>
 
 </body>
+
+
 <script>
     const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-const navLink = document.querySelectorAll(".nav-link");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLink = document.querySelectorAll(".nav-link");
 
-hamburger.addEventListener("click", mobileMenu);
-navLink.forEach(n => n.addEventListener("click", closeMenu));
+    hamburger.addEventListener("click", mobileMenu);
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
 
-function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-}
-
-function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-}
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
 </script>
+
+
+    <!-- Hero Image Slider Script section -->
+    <script>
+        const slides = document.querySelector('.slides');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.style.transform = `translateX(${-index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? dots.length - 1 : currentIndex - 1;
+            showSlide(currentIndex);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex === dots.length - 1) ? 0 : currentIndex + 1;
+            showSlide(currentIndex);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(currentIndex);
+            });
+        });
+
+        // Auto-slide functionality
+        setInterval(() => {
+            currentIndex = (currentIndex === dots.length - 1) ? 0 : currentIndex + 1;
+            showSlide(currentIndex);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+
+
 <!-- Script for controlling the testimony carousel card -->
 
 <!-- ________________________________________________________ -->
 <script>
     const wrapper = document.querySelector(".wrapper");
-const carousel = document.querySelector(".carousel");
-const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-const arrowBtns = document.querySelectorAll(".wrapper i");
-const carouselChildrens = [...carousel.children];
+    const carousel = document.querySelector(".carousel");
+    const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+    const arrowBtns = document.querySelectorAll(".wrapper i");
+    const carouselChildrens = [...carousel.children];
 
 let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
 
