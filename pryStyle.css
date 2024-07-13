@@ -150,7 +150,74 @@ a {
 }
 
 
+/* Hero Slider Section */
+.heroBtn{
+    background-color: var(--pry-color);
+    padding: 10px 40px;
+    margin: 50px 0px ;
+    color: white;
+}
+.mainContainer{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.heroImage img{
+    width: 100%;
+}
+.slider{
+    /* position: relative; */
+    width: 100%;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+.slide {
+    min-width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.dot {
+    width: 20px;
+    height: 2px;
+    margin: 0 5px;
+    background: #757575;
 
+    cursor: pointer;
+}
+.dot.active {
+    background: rgb(255, 115, 0);
+}
+.nav-buttons {
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.nav-button {
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 5px;
+}
 
 /* -----------Styling Introduction section-------- */
 
@@ -526,52 +593,65 @@ hr{
             color: var(--button-hover);
         }
 
+        .mainContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: start;
+            margin: 60px;
+        }
+        .slide {
+            min-width: 97%;
+            height: 100vh;
+        }
         .button{
                 display: none;
         }
-/* Our services */
-.O-cards{
-    display: flex;
-    justify-content: center;
-    /* flex-wrap: wrap; */
-    grid-template-columns: 40%;
-    grid-template-rows: 400px ;
-    gap: 20px;
-    margin: 50px 0 0px 0 ;
-}
-.o-card{
-    width: 360px;
-    height: auto;
-    padding: 20px;
-    display: block;
-    justify-content: center;
-    align-items:center ;
-    text-align: center;
-    background-color: #fff;
-    transition: 1s ease;
-    border-radius: 5px;
-}
-.AC-cards{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.AC-counterCard{
-    width: 35%;
-    
-}
 
-.Q-container{
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.Q-card{
-    width: 30%;
-}
+        /* Our services */
+        .O-cards{
+            display: flex;
+            justify-content: center;
+            /* flex-wrap: wrap; */
+            grid-template-columns: 40%;
+            grid-template-rows: 400px ;
+            gap: 20px;
+            margin: 50px 0 0px 0 ;
+        }
+        .o-card{
+            width: 360px;
+            height: auto;
+            padding: 20px;
+            display: block;
+            justify-content: center;
+            align-items:center ;
+            text-align: center;
+            background-color: #fff;
+            transition: 1s ease;
+            border-radius: 5px;
+        }
+        .AC-cards{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .AC-counterCard{
+            width: 35%;
+            
+        }
+
+        .Q-container{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .Q-card{
+            width: 30%;
+        }
 /* Testimony section */
         .wrapper .carousel {
             grid-auto-columns: calc((100% / 2) - 9px);
@@ -608,6 +688,10 @@ hr{
         font-size: 1.3rem;
         text-align: justify;
     }
+    .slide {
+        min-width: 95%;
+        height: 100vh;
+    }
 
 }
 
@@ -627,4 +711,8 @@ hr{
           .wrapper i:last-child{
             right: 20px;
           }
+          .slide {
+            min-width: 92%;
+            height: 100vh;
+        }
 }
