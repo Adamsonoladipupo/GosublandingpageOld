@@ -29,7 +29,7 @@
     position: sticky;
     z-index: 5;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    /* margin-bottom: 30px; */
+    margin-bottom: 50px;
 }
 
 button{
@@ -244,8 +244,15 @@ margin: 0px 0px -5px 0px;
 padding: 20px;
 margin-top: 20px;
 }
+
 .A-container{
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.A-Image img{
+    display: none;
 }
 /* -----------Styling Our Services section ------- */
 .O-container{
@@ -270,6 +277,7 @@ margin-top: 20px;
     background-color: #fff;
     transition: 1s ease;
     border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
 }
 .O-icon{
     margin: 20px;
@@ -377,6 +385,7 @@ margin-top: 20px;
     text-align: center;
     border-radius: 5px;
     width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
 }
 
 /* -----------Styling Testimony section ------- */
@@ -614,6 +623,19 @@ hr{
                 display: none;
         }
 
+        .A-container{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .A-Image img{
+            display: block;
+            width: 600px;
+            margin: 0px 50px 0 50px;
+            border-radius: 5px;
+        }
+
 
         /* Our services */
         .O-cards{
@@ -692,7 +714,7 @@ hr{
     .AC-texts{
         max-width: 40%;
         font-size: 1.3rem;
-        text-align: justify;
+        /* text-align: justify; */
     }
     .slide {
         min-width: 95%;
