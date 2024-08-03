@@ -717,6 +717,9 @@ hr{
             display: flex; 
             justify-content: space-between;
         }
+        .belowHr div{
+            margin-top: 0px;
+        }
 }
 
 @media (min-width: 900px){
